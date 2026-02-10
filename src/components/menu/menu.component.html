@@ -1,0 +1,32 @@
+<section id="menu" class="py-20 md:py-32 bg-[#FFF9F9]">
+  <div class="container mx-auto px-6 text-center">
+    <h2 class="text-4xl md:text-5xl font-script text-[#4A2C2A] mb-4">Nossos Sabores</h2>
+    <p class="max-w-2xl mx-auto text-lg text-stone-600 mb-16">
+      Uma seleção de cones trufados feitos com os melhores ingredientes e muito afeto.
+    </p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+      @for(flavor of flavors(); track flavor.name) {
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col group text-left">
+          <div class="overflow-hidden h-64">
+            <img [src]="flavor.imageUrl" [alt]="flavor.name" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-2xl font-serif-elegant text-[#4A2C2A]">{{ flavor.name }}</h3>
+            <p class="text-stone-500 mt-2 flex-grow">{{ flavor.description }}</p>
+            <div class="mt-6 pt-6 border-t border-pink-100">
+                <button (click)="orderFlavor(flavor.name)" class="w-full bg-[#E5B4B4] text-[#4A2C2A] font-bold py-3 px-4 rounded-full shadow-md hover:bg-[#D48C8C] hover:text-white transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#E5B4B4]">
+                  Pedir este sabor
+                </button>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+    <div class="mt-20 border-t-2 border-dashed border-pink-200 pt-12 max-w-3xl mx-auto">
+      <div class="bg-white border border-pink-100 p-6 rounded-lg">
+        <p class="text-xl font-semibold text-[#B36A6A]">✨ Temos também um sabor especial todo dia!</p>
+        <p class="mt-2 text-stone-600">👉 Entre em contato pelo WhatsApp para descobrir a delícia de hoje 🍫</p>
+      </div>
+    </div>
+  </div>
+</section>
